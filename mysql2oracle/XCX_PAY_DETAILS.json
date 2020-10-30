@@ -1,0 +1,66 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 3
+			}
+		},
+		"content": [{
+			"reader": {
+				"name": "mysqlreader",
+				"parameter": {
+					"username": "test_User",
+					"password": "q#uPq1lGGbESEnR",
+					"column": [
+						"ID",
+						"OUT_NO",
+						"RY",
+						"SRC_YR_PROJECT_ID",
+						"BEGIN_MONTH",
+						"END_MONTH",
+						"DETAIL_AMOUNT",
+						"KEMU_NAME",
+						"FEE_IDS",
+						"UNIT_PRICE"
+					],
+					"connection": [{
+						"table": [
+							"XCX_PAY_DETAILS"
+						],
+						"jdbcUrl": [
+							"jdbc:mysql://10.4.128.84:3306/sunac_xcx"
+						]
+					}]
+				}
+			},
+			"writer": {
+				"name": "oraclewriter",
+				"parameter": {
+					"username": "WYAPP_PFMC",
+					"password": "WYAPP_PFMC",
+					"column": [
+						"ID",
+						"OUT_NO",
+						"RY",
+						"SRC_YR_PROJECT_ID",
+						"BEGIN_MONTH",
+						"END_MONTH",
+						"DETAIL_AMOUNT",
+						"KEMU_NAME",
+						"FEE_IDS",
+						"UNIT_PRICE"
+					],
+					"preSql": [
+						"${delSql}"
+					],
+					"connection": [{
+						"jdbcUrl": "jdbc:oracle:thin:@172.17.32.69:1521:gjdb",
+						"table": [
+							"XCX_PAY_DETAILS"
+						]
+					}]
+				}
+			}
+		}]
+	}
+}

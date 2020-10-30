@@ -1,0 +1,35 @@
+
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 3
+			}
+		},
+		"content": [{
+			"reader": {
+				"name": "mysqlreader",
+				"parameter": {
+					"username": "test_User",
+					"password": "q#uPq1lGGbESEnR",
+					"connection": [{
+						"querySql": [
+                                    "select ID from ${tableName}"
+                                ],
+						"jdbcUrl": [
+							"jdbc:mysql://10.4.128.84:3306/sunac_xcx"
+						]
+					}]
+				}
+			},
+			 "writer": {
+                    "name": "txtfilewriter",
+                    "parameter": {
+                        "path": "/opt/software/datax/tempfile",
+                        "fileName": "${tableName}",
+                        "writeMode": "truncate"
+                    }
+                }
+		}]
+	}
+}

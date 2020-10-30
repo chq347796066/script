@@ -1,0 +1,78 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 3
+			}
+		},
+		"content": [{
+			"reader": {
+				"name": "mysqlreader",
+				"parameter": {
+					"username": "test_User",
+					"password": "q#uPq1lGGbESEnR",
+					"column": [
+						"ID",
+						"REMINDER_ID",
+						"SHARE_ID",
+						"REMINDER_KIND",
+						"AREA_ID",
+						"AREA_NAME",
+						"OBJ_ID",
+						"OBJ_NAME",
+						"OBJ_TYPE",
+						"OWNER_ID",
+						"SUBJECTNAME",
+						"FEEMONTH",
+						"FEEAMOUNT",
+						"FEEOWNER",
+						"FEEID",
+						"FEESTATE"
+					],
+					"connection": [{
+						"table": [
+							"XCX_BUTLER_REMINDER_DETAIL"
+						],
+						"jdbcUrl": [
+							"jdbc:mysql://10.4.128.84:3306/sunac_xcx"
+						]
+					}]
+				}
+			},
+			"writer": {
+				"name": "oraclewriter",
+				"parameter": {
+					"username": "WYAPP_PFMC",
+					"password": "WYAPP_PFMC",
+					"column": [
+						"ID",
+						"REMINDER_ID",
+						"SHARE_ID",
+						"REMINDER_KIND",
+						"AREA_ID",
+						"AREA_NAME",
+						"OBJ_ID",
+						"OBJ_NAME",
+						"OBJ_TYPE",
+						"OWNER_ID",
+						"SUBJECTNAME",
+						"FEEMONTH",
+						"FEEAMOUNT",
+						"FEEOWNER",
+						"FEEID",
+						"FEESTATE"
+					],
+					"preSql": [
+						"${delSql}"
+					],
+					"connection": [{
+						"jdbcUrl": "jdbc:oracle:thin:@172.17.32.69:1521:gjdb",
+						"table": [
+							"XCX_BUTLER_REMINDER_DETAIL"
+						]
+					}]
+				}
+			}
+		}]
+	}
+}

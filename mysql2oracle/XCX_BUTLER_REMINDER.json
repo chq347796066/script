@@ -1,0 +1,114 @@
+{
+	"job": {
+		"setting": {
+			"speed": {
+				"channel": 3
+			}
+		},
+		"content": [{
+			"reader": {
+				"name": "mysqlreader",
+				"parameter": {
+					"username": "test_User",
+					"password": "q#uPq1lGGbESEnR",
+					"column": [
+						"ID",
+						"REMINDER_DATE",
+						"REMINDER_TYPE",
+						"ACCOUNTS",
+						"ACCOUNTS_NAME",
+						"ACCOUNTS_MOBILE",
+						"ACCONNTS_MOBILE",
+						"PAY_STATE",
+						"END_MONTH",
+						"AREA_ID",
+						"AREA_NAME",
+						"OBJ_ID",
+						"OBJ_NAME",
+						"OBJ_TYPE",
+						"AMOUNT",
+						"FEEAMOUNT",
+						"IS_REMINDER",
+						"REMINDER_AMOUNT",
+						"STAY_AMOUNT",
+						"IS_PREPAY",
+						"PREPAY_TYPE",
+						"PREPAY_AMOUNT",
+						"OWNER_ID",
+						"OWNERNAME",
+						"MOBILE",
+						"SENDSMSDATE",
+						"SENDSMSSTATE",
+						"REMINDERURL",
+						"REMINDERSMS",
+						"REMINDERSMSURL",
+						"QRINFO",
+						"SHARE_ID",
+						"PAYFLAG",
+						"PAYTIME"
+					],
+					"connection": [{
+						"table": [
+							"XCX_BUTLER_REMINDER"
+						],
+						"jdbcUrl": [
+							"jdbc:mysql://10.4.128.84:3306/sunac_xcx"
+						]
+					}]
+				}
+			},
+			"writer": {
+				"name": "oraclewriter",
+				"parameter": {
+					"username": "WYAPP_PFMC",
+					"password": "WYAPP_PFMC",
+					"column": [
+						"ID",
+						"REMINDER_DATE",
+						"REMINDER_TYPE",
+						"ACCOUNTS",
+						"ACCOUNTS_NAME",
+						"ACCOUNTS_MOBILE",
+						"ACCONNTS_MOBILE",
+						"PAY_STATE",
+						"END_MONTH",
+						"AREA_ID",
+						"AREA_NAME",
+						"OBJ_ID",
+						"OBJ_NAME",
+						"OBJ_TYPE",
+						"AMOUNT",
+						"FEEAMOUNT",
+						"IS_REMINDER",
+						"REMINDER_AMOUNT",
+						"STAY_AMOUNT",
+						"IS_PREPAY",
+						"PREPAY_TYPE",
+						"PREPAY_AMOUNT",
+						"OWNER_ID",
+						"OWNERNAME",
+						"MOBILE",
+						"SENDSMSDATE",
+						"SENDSMSSTATE",
+						"REMINDERURL",
+						"REMINDERSMS",
+						"REMINDERSMSURL",
+						"QRINFO",
+						"SHARE_ID",
+						"PAYFLAG",
+						"PAYTIME"
+					],
+					"preSql":[
+						"${delSql}"
+					],
+					"connection": [{
+						"jdbcUrl": "jdbc:oracle:thin:@172.17.32.69:1521:gjdb",
+						"table": [
+							"XCX_BUTLER_REMINDER"
+						]
+					}]
+				}
+			}
+		}]
+	}
+}
